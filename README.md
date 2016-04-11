@@ -1,2 +1,3 @@
-# Dropwizard-example-app
-Example app using using Dropwizard framework
+Dropwizard-example-app
+======================
+Example Dropwizard app that consumes different bundles.
