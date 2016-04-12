@@ -1,0 +1,3 @@
+rootProject.name = 'dropwizard-example-app'
+
+include 'dropwizard-example-app-server'

@@ -1,0 +1,15 @@
+apply plugin: "application"
+
+dependencies {
+    compile "com.palantir.websecurity:dropwizard-web-security:${webSecurityVersion}"
+    compile "com.palantir.indexpage:dropwizard-index-page:${indexPageVersion}"
+    compile "io.dropwizard:dropwizard-core:$dropwizardVersion"
+}
+
+mainClassName = "com.madscience.example.ExampleApplication"
+
+run {
+    args "server", "example.yml"
+}
+
+test.enabled false
