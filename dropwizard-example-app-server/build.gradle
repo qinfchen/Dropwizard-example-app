@@ -1,9 +1,17 @@
 apply plugin: "application"
+apply plugin: "org.inferred.processors"
 
 dependencies {
     compile "com.palantir.websecurity:dropwizard-web-security:${webSecurityVersion}"
     compile "com.palantir.indexpage:dropwizard-index-page:${indexPageVersion}"
-    compile "io.dropwizard:dropwizard-core:$dropwizardVersion"
+    compile "io.dropwizard:dropwizard-core:${dropwizardVersion}"
+
+    processor "org.immutables:value:${immutablesVersion}"
+
+    testCompile "junit:junit:${junitVersion}"
+    testCompile "org.assertj:assertj-core:${assertJVersion}"
+    testCompile "com.google.truth:truth:${truthVersion}"
+
 }
 
 mainClassName = "com.madscience.example.ExampleApplication"
