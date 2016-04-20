@@ -15,25 +15,47 @@
 
 package com.madscience.example.pojos;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.immutables.value.Value.Immutable;
-import org.immutables.value.Value.Style;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 /**
  * Example person object.
  */
-@Immutable
-@Style(allParameters = true)
-@JsonSerialize(as = ImmutableExamplePerson.class)
-@JsonDeserialize(as = ImmutableExamplePerson.class)
-public abstract class ExamplePerson {
+public final class ExamplePerson {
 
-    public abstract int getAge();
+    private final int age;
+    private final String firstName;
+    private final String gender;
+    private final String lastName;
 
-    public abstract String getFirstName();
+    @JsonCreator
+    public ExamplePerson(
+            @JsonProperty int age,
+            @JsonProperty String firstName,
+            @JsonProperty String gender,
+            @JsonProperty String lastName) {
+        this.age = age;
+        this.firstName = firstName;
+        this.gender = gender;
+        this.lastName = lastName;
+    }
 
-    public abstract String getGender();
+    public int getAge() {
+        return age;
+    }
 
-    public abstract String getLastName();
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
 }
+

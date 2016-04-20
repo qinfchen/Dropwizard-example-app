@@ -17,7 +17,6 @@ package com.madscience.example;
 
 import com.google.common.truth.Truth;
 import com.madscience.example.pojos.ExamplePerson;
-import com.madscience.example.pojos.ImmutableExamplePerson;
 import org.assertj.core.api.Assertions;
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,8 +28,8 @@ public final class TestComparisons {
 
     @Test
     public void testAssertThat() {
-        ExamplePerson expected = ImmutableExamplePerson.of(10, "John", "Male", "Snow");
-        ExamplePerson actual = ImmutableExamplePerson.of(10, "John", "Male", "Snow");
+        ExamplePerson expected = new ExamplePerson(10, "John", "Male", "Snow");
+        ExamplePerson actual = new ExamplePerson(10, "John", "Male", "Snow");
 
         // assertJ
         Assertions.assertThat(actual).isEqualTo(expected);
