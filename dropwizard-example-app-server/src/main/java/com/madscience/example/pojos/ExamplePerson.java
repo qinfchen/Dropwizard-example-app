@@ -17,6 +17,7 @@ package com.madscience.example.pojos;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.palantir.config.service.ServiceConfiguration;
 
 
 /**
@@ -28,6 +29,7 @@ public final class ExamplePerson {
     private final String firstName;
     private final String gender;
     private final String lastName;
+    private final ServiceConfiguration serviceConfig;
 
     @JsonCreator
     public ExamplePerson(
@@ -39,6 +41,7 @@ public final class ExamplePerson {
         this.firstName = firstName;
         this.gender = gender;
         this.lastName = lastName;
+        this.serviceConfig = ServiceConfiguration.builder().build();
     }
 
     public int getAge() {
